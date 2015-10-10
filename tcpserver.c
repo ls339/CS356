@@ -12,6 +12,9 @@ int main(int argc, char **argv) {
   int sock, port;
   char buffer[256];
 
+  /* Structure describing an Internet socket address.  */
+  stuct sockaddr_in ServerInternetSocketAddress; 
+
   /*
    * int socket(int domain, int type, int protocol);
    * AF_INET : IPv4 Internet protocols
