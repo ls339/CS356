@@ -30,3 +30,15 @@
 
 # Debug files
 *.dSYM/
+
+tcpserver
+
+server
+
+client.c
+
+client
+
+Makefile
+
+server.c
