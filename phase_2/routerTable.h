@@ -112,10 +112,6 @@ void updateRoute(struct route_node **tb, int dest, int cost, char iface) {
   }
 }
 
-int lengthOfTable(struct route_node **tb) {
-  return 0;
-}
-
 char * printTable(struct route_node **tb,int routerno) {
   char *str = (char *) malloc(1024);
   int i;
