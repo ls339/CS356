@@ -148,8 +148,8 @@ void BellmanFord(struct route_node **local, struct route_node **remote, int remo
     if(local[i]->interface=='l'||remote[i]->interface=='l') continue;
     int newCost = remote[i]->cost+local[remotert]->cost;
     if(local[i]->cost > newCost) {
-      printf("Updating : dest = %d to cost = %d via iface = %c\n",local[i]->dest,newCost,remote[i]->interface);
-      updateRoute(local,local[i]->dest,newCost,remote[i]->interface);
+      printf("Updating : dest = %d to cost = %d via iface = %c\n",local[i]->dest,newCost,local[remotert]->interface);
+      updateRoute(local,local[i]->dest,newCost,local[remotert]->interface);
     }
   }
 }
