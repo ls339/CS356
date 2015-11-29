@@ -148,6 +148,19 @@ int main(int argc,char **argv) {
     printf("status = %d \n",status);
     if(status == UPDATED) {
       printf("%s",printTable(tb,routerno));
+      printf("sending table to connected links\n");
+      serial_table = serializeTable(tb,routerno);
+      for(i=0;i<num_dc_hosts;i++) {
+	printf("--> %s\n",dc_hosts[i]);
+	rsock = socket(AF_INET, SOCK_STREAM, 0);
+        rhost = gethostbyname(dc_hosts[i]);
+        bcopy((char *)rhost->h_addr,(char *)&remote_addr.sin_addr.s_addr,rhost->h_length);
+	if (connect(rsock,(struct sockaddr *) &remote_addr,sizeof(remote_addr)) < 0) {
+          printf("ERROR connecting\n");
+        }
+	n = write(rsock,serial_table,strlen(serial_table));
+	close(rsock);
+      }
     }
   }
   
