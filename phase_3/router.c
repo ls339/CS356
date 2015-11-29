@@ -17,7 +17,6 @@ int main(int argc,char **argv) {
   int sock, newsock, rsock, clilen, portno, routerno, n;
   int i,j, num_dc_hosts, remote_router;
   struct hostent *host, *rhost;
-  //struct sockaddr_in cli_addr;
   struct sockaddr_in cli_addr, serv_addr, remote_addr;
   char buffer[1024];
   char *dc_hosts[N];
@@ -26,13 +25,13 @@ int main(int argc,char **argv) {
   struct route_node *remote_tb[N];
   enum state status;
 
-  if(argc < 4) {
-    printf("Usage %s host portno routerno\n",argv[0]);
+  if(argc < 3) {
+    printf("Usage %s portno routerno\n",argv[0]);
     return 0;
   }
 
-  portno = atoi(argv[2]);
-  routerno = atoi(argv[3]);
+  portno = atoi(argv[1]);
+  routerno = atoi(argv[2]);
 
   /*
    * Hard coded aws routers.
@@ -62,7 +61,6 @@ int main(int argc,char **argv) {
   status = INIT;
   
   sock = socket(AF_INET, SOCK_STREAM, 0); // Handle error
-  host = gethostbyname(argv[1]); // Handle error
   bzero((char *) &serv_addr, sizeof(serv_addr));
   serv_addr.sin_family = AF_INET;
   serv_addr.sin_addr.s_addr = INADDR_ANY;
