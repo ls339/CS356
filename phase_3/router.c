@@ -35,22 +35,22 @@ int main(int argc,char **argv) {
   
   if(routerno==0) {
     num_dc_hosts = 3;
-    dc_hosts[0] = "54.164.31.62";
+    dc_hosts[0] = "54.152.167.71";
     dc_hosts[1] = "54.86.4.199";
     dc_hosts[3] = "54.152.92.114";
   } else if(routerno==1) {
     num_dc_hosts = 2;
     dc_hosts[0] = "54.164.31.62";
-    dc_hosts[1] = "54.86.4.199";
+    dc_hosts[1] = "54.152.92.114";
   } else if(routerno==2) {
     num_dc_hosts = 3;
     dc_hosts[0] = "54.164.31.62";
     dc_hosts[1] = "54.86.4.199";
-    dc_hosts[3] = "54.152.92.114";
+    dc_hosts[3] = "54.152.167.71";
   }  if(routerno==3) {
     num_dc_hosts = 2;
     dc_hosts[0] = "54.164.31.62";
-    dc_hosts[1] = "54.86.4.199";
+    dc_hosts[1] = "54.152.92.114";
   }
 
   enum state status;
